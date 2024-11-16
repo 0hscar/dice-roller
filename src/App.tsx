@@ -47,6 +47,8 @@ function App() {
         <button onClick={() => rollDice(1)}>Roll 1</button>
         <button onClick={() => rollDice(2)}>Roll 2</button>
         <button onClick={() => rollDice(3)}>Roll 3</button>
+        <button onClick={() => rollDice(4)}>Roll 4</button>
+        <button onClick={() => rollDice(5)}>Roll 5</button>
       </div>
       <div className="result">
         {result.length > 0 && (
