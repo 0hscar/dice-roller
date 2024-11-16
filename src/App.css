@@ -1,18 +1,59 @@
+:root {
+    --brass-color: #b5a642;
+    --copper-color: #b87333;
+    --dark-brown: #32231f;
+    --aged-paper: #f4e4bc;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: "Georgia", serif;
+    background-color: var(--dark-brown);
+    color: var(--brass-color);
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--dark-brown),
+        var(--dark-brown) 10px,
+        rgba(181, 166, 66, 0.1) 10px,
+        rgba(181, 166, 66, 0.1) 20px
+    );
 }
 
 .App {
     text-align: center;
     padding: 20px;
+    background-color: rgba(50, 35, 31, 0.9);
+    border: 3px solid var(--brass-color);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(181, 166, 66, 0.3);
 }
 
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: var(--brass-color);
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    border-bottom: 2px solid var(--copper-color);
+    padding-bottom: 10px;
+    position: relative;
+}
+
+h1::before,
+h1::after {
+    content: "★";
+    position: absolute;
+    top: 50%;
+    color: var(--copper-color);
+    font-size: 1.5rem;
+}
+
+h1::before {
+    left: 20px;
+}
+
+h1::after {
+    right: 20px;
 }
 
 .dice-options {
@@ -25,53 +66,96 @@ button {
     margin: 5px;
     padding: 10px 20px;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 3px solid var(--brass-color);
     border-radius: 5px;
-    background-color: #fff;
+    background: linear-gradient(145deg, var(--copper-color), var(--dark-brown));
+    color: var(--aged-paper);
     cursor: pointer;
-    transition:
-        background-color 0.3s,
-        transform 0.2s;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px var(--shadow-color);
+    position: relative;
+    font-family: "Georgia", serif;
 }
 
 button:hover {
-    background-color: #007bff;
-    color: #fff;
+    background: linear-gradient(
+        145deg,
+        var(--brass-color),
+        var(--copper-color)
+    );
+    transform: scale(1.05);
 }
 
 button.active {
-    background-color: #007bff;
-    color: #fff;
+    background: linear-gradient(
+        145deg,
+        var(--brass-color),
+        var(--copper-color)
+    );
+    color: var(--aged-paper);
+    border-color: var(--copper-color);
 }
 
 .roll-controls {
     margin: 20px 0;
+    padding: 15px;
+    border: 2px solid var(--copper-color);
+    border-radius: 8px;
+    background: linear-gradient(rgba(50, 35, 31, 0.9), rgba(50, 35, 31, 0.7));
 }
 
 .result {
     margin: 20px 0;
+    padding: 15px;
+    background: linear-gradient(145deg, var(--aged-paper), #fff);
+    border: 2px solid var(--copper-color);
+    border-radius: 8px;
+    box-shadow: 3px 3px 8px var(--shadow-color);
 }
 
 .result p {
     font-size: 1.2rem;
+    color: var(--dark-brown);
 }
 
 .history {
     margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(
+        rgba(244, 228, 188, 0.1),
+        rgba(50, 35, 31, 0.9)
+    );
+    border: 2px solid var(--brass-color);
+    border-radius: 8px;
+    position: relative;
+}
+
+.history::before {
+    content: "≋";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--brass-color);
+    font-size: 1.5rem;
 }
 
 .history p {
     font-size: 1rem;
     margin: 5px 0;
+    color: var(--aged-paper);
 }
 
 .history h2 {
     margin-bottom: 10px;
+    color: var(--brass-color);
+    text-shadow: 1px 1px 3px var(--shadow-color);
 }
 
 .App-logo {
     height: 40vmin;
     pointer-events: none;
+    filter: sepia(100%) brightness(90%) contrast(110%);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -81,18 +165,31 @@ button.active {
 }
 
 .App-header {
-    background-color: #282c34;
+    background: linear-gradient(
+        to bottom,
+        var(--dark-brown),
+        rgba(50, 35, 31, 0.9)
+    );
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: var(--aged-paper);
+    border: 3px solid var(--brass-color);
 }
 
 .App-link {
-    color: #61dafb;
+    color: var(--copper-color);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.App-link:hover {
+    color: var(--brass-color);
+    text-decoration: underline;
 }
 
 @keyframes App-logo-spin {
